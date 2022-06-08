@@ -1,3 +1,4 @@
+const { Sequelize } = require("sequelize");
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./models");
 
+// * database connection
 db.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.");
 });
